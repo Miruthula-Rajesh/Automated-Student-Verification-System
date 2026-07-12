@@ -1,0 +1,179 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#1565C0,#42A5F5);
+    min-height:100vh;
+    padding:30px;
+}
+
+.container{
+    width:95%;
+    margin:auto;
+}
+
+.card{
+    background:rgba(255,255,255,.95);
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,.2);
+    margin-bottom:25px;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+h1{
+    color:#1565C0;
+    margin-bottom:15px;
+}
+
+h2{
+    color:#333;
+    margin-bottom:10px;
+}
+
+.stats{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    margin-bottom:25px;
+}
+
+.stat-box{
+    flex:1;
+    min-width:220px;
+    background:white;
+    border-radius:12px;
+    text-align:center;
+    padding:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+.stat-box h2{
+    font-size:35px;
+    color:#1565C0;
+}
+
+.stat-box p{
+    color:#666;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 5px 20px rgba(0,0,0,.2);
+}
+
+table th{
+    background:#1565C0;
+    color:white;
+    padding:15px;
+}
+
+table td{
+    padding:12px;
+    text-align:center;
+    border-bottom:1px solid #ddd;
+}
+
+table tr:hover{
+    background:#f5f5f5;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    margin:8px 0;
+    border-radius:8px;
+    border:1px solid #ccc;
+    outline:none;
+}
+
+input:focus{
+    border:1px solid #1565C0;
+}
+
+button{
+
+    background:#1565C0;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    border-radius:8px;
+    cursor:pointer;
+    transition:.3s;
+
+}
+
+button:hover{
+
+    background:#0D47A1;
+
+}
+
+a{
+
+    text-decoration:none;
+
+}
+
+.verify{
+
+    background:#2E7D32;
+    color:white;
+    padding:8px 15px;
+    border-radius:5px;
+
+}
+
+.delete{
+
+    background:#C62828;
+    color:white;
+    padding:8px 15px;
+    border-radius:5px;
+
+}
+
+.back{
+
+    background:#616161;
+    color:white;
+    padding:10px 18px;
+    border-radius:5px;
+    display:inline-block;
+    margin-top:20px;
+
+}
+
+.success{
+
+    color:green;
+    font-weight:bold;
+
+}
+
+.pending{
+
+    color:orange;
+    font-weight:bold;
+
+}
+
+.footer{
+
+    text-align:center;
+    color:white;
+    margin-top:30px;
+
+}

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Verification Logs</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+
+        body{
+            font-family:Arial,Helvetica,sans-serif;
+            background:#f5f7fb;
+            margin:40px;
+        }
+
+        h1{
+            color:#0d47a1;
+        }
+
+        .container{
+            width:95%;
+            margin:auto;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+            background:white;
+            box-shadow:0 0 10px rgba(0,0,0,.15);
+        }
+
+        table th{
+            background:#1565c0;
+            color:white;
+            padding:12px;
+        }
+
+        table td{
+            padding:12px;
+            border:1px solid #ddd;
+            text-align:center;
+        }
+
+        tr:nth-child(even){
+            background:#f8f8f8;
+        }
+
+        .success{
+            color:green;
+            font-weight:bold;
+        }
+
+        .failed{
+            color:red;
+            font-weight:bold;
+        }
+
+        .back{
+            display:inline-block;
+            margin-top:20px;
+            padding:10px 18px;
+            background:#1565c0;
+            color:white;
+            text-decoration:none;
+            border-radius:5px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Verification Logs</h1>
+
+<table>
+
+<tr>
+
+<th>ID</th>
+<th>Register No</th>
+<th>Email</th>
+<th>Result</th>
+<th>Date & Time</th>
+
+</tr>
+
+{% for log in logs %}
+
+<tr>
+
+<td>{{ log.id }}</td>
+
+<td>{{ log.reg_no }}</td>
+
+<td>{{ log.email }}</td>
+
+<td>
+
+{% if log.result=="Verified" %}
+
+<span class="success">
+
+{{ log.result }}
+
+</span>
+
+{% else %}
+
+<span class="failed">
+
+{{ log.result }}
+
+</span>
+
+{% endif %}
+
+</td>
+
+<td>{{ log.verified_at }}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<a href="/" class="back">
+
+⬅ Back to Dashboard
+
+</a>
+
+</div>
+
+</body>
+
+</html>

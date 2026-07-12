@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <meta charset="UTF-8">
+    <title>Student Management</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+
+        body{
+            font-family:Arial,Helvetica,sans-serif;
+            background:#f4f7fa;
+            margin:40px;
+        }
+
+        h1{
+            color:#0d47a1;
+        }
+
+        .container{
+            width:95%;
+            margin:auto;
+        }
+
+        .card{
+            background:white;
+            padding:20px;
+            border-radius:10px;
+            box-shadow:0 0 10px rgba(0,0,0,.2);
+            margin-bottom:20px;
+        }
+
+        input{
+
+            width:100%;
+            padding:10px;
+            margin-top:10px;
+            margin-bottom:10px;
+            border-radius:5px;
+            border:1px solid #ccc;
+
+        }
+
+        button{
+
+            background:#1565c0;
+            color:white;
+            padding:10px 20px;
+            border:none;
+            border-radius:5px;
+            cursor:pointer;
+
+        }
+
+        button:hover{
+
+            background:#0d47a1;
+
+        }
+
+        table{
+
+            width:100%;
+            border-collapse:collapse;
+            background:white;
+
+        }
+
+        table th{
+
+            background:#1565c0;
+            color:white;
+            padding:12px;
+
+        }
+
+        table td{
+
+            padding:12px;
+            text-align:center;
+            border:1px solid #ddd;
+
+        }
+
+        .delete{
+
+            background:red;
+            color:white;
+            text-decoration:none;
+            padding:8px 12px;
+            border-radius:5px;
+
+        }
+
+        .verify{
+
+            background:green;
+            color:white;
+            text-decoration:none;
+            padding:8px 12px;
+            border-radius:5px;
+
+        }
+
+        .back{
+
+            display:inline-block;
+            margin-top:20px;
+            background:#555;
+            color:white;
+            text-decoration:none;
+            padding:10px 15px;
+            border-radius:5px;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="card">
+
+<h1>Student Management</h1>
+
+<form action="/add" method="POST">
+
+<input
+type="text"
+name="reg_no"
+placeholder="Register Number"
+required>
+
+<input
+type="text"
+name="name"
+placeholder="Student Name"
+required>
+
+<input
+type="text"
+name="department"
+placeholder="Department"
+required>
+
+<input
+type="text"
+name="year"
+placeholder="Year"
+required>
+
+<input
+type="email"
+name="email"
+placeholder="Email"
+required>
+
+<button type="submit">
+
+Add Student
+
+</button>
+
+</form>
+
+</div>
+
+<div class="card">
+
+<form action="/search" method="POST">
+
+<input
+type="text"
+id="searchInput"
+onkeyup="searchTable()"
+placeholder="Search Student">
+
+<button type="submit">
+
+Search
+
+</button>
+
+</form>
+
+</div>
+
+<table id="studentTable">
+
+<tr>
+
+<th>Register No</th>
+
+<th>Name</th>
+
+<th>Department</th>
+
+<th>Year</th>
+
+<th>Email</th>
+
+<th>Status</th>
+
+<th>Actions</th>
+
+</tr>
+
+{% for s in students %}
+
+<tr>
+
+<td>{{ s.reg_no }}</td>
+
+<td>{{ s.name }}</td>
+
+<td>{{ s.department }}</td>
+
+<td>{{ s.year }}</td>
+
+<td>{{ s.email }}</td>
+
+<td>{{ s.status }}</td>
+
+<td>
+
+<a
+class="verify"
+onclick="return confirmVerify('{{ s.reg_no }}')"
+href="/verify/{{ s.reg_no }}">
+
+<a
+class="delete"
+onclick="return confirmDelete('{{ s.reg_no }}')"
+href="/delete/{{ s.reg_no }}">
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<a
+class="back"
+href="/">
+
+⬅ Dashboard
+
+</a>
+
+</div>
+
+</body>
+
+</html>
